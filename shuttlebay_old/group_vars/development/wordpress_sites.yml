@@ -1,0 +1,25 @@
+wordpress_sites:
+    blanco-vista:
+        site_hosts:
+            - blanco-vista.dev
+        local_path: ../blanco-vista # path targeting local Spacestation site directory (relative to Ansible root)
+        site_title: Blanco Vista
+        admin_user: admin
+        # admin_password: (defined in group_vars/development/vault.yml)
+        admin_email: admin@blanco-vista.dev
+        initial_permalink_structure: /%postname%/ # applied only at time of WP install and when `site_install: true`
+        multisite:
+            enabled: false
+            subdomains: false
+        ssl:
+            enabled: false
+            provider: self-signed
+        cache:
+            enabled: true
+            duration: 30s
+        env:
+            wp_home: http://blanco-vista.dev
+            wp_siteurl: http://blanco-vista.dev/wp
+            db_name: BlancoVista_dev
+            db_user: blancovista_dbuser
+            # db_password: (defined in group_vars/development/vault.yml)

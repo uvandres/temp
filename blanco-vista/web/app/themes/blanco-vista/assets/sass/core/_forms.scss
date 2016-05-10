@@ -1,0 +1,49 @@
+input, select, textarea {
+	text-shadow: none;
+	outline: none;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+	color: $white;
+	font-family: $kepler;
+	font-size: 1.22rem;
+	letter-spacing: 0.06rem;
+	line-height: 2.1;
+	background: transparent linear-gradient(transparentize($mist, 0.2), transparent 1px, transparent) bottom no-repeat;
+	background-size: 100% 0%;
+	border: none;
+	border-bottom: 4px solid $mist-drk;
+	border-radius: 0;
+	padding: 0.4rem 0.83rem 0;
+
+	@include placeholder {
+		color: transparentize($white, 0.3);
+		font-style: italic;
+	}
+
+	&:focus {
+		border-bottom-color: $freshblue-drk;
+		background-size: 100% 100%;
+		@include placeholder {
+			color: transparentize($white, 0.7);
+		}
+	}
+
+	@include transition(background-size 0.3s ease-out,
+											border-bottom-color 0.3s ease-out);
+}

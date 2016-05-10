@@ -1,0 +1,197 @@
+section.discover {
+  padding: 0 $main-padding 0;
+
+  > ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto 5rem;
+
+    > li {
+      position: relative;
+      padding: 1.056rem;
+      cursor: pointer;
+      background-position: center;
+
+      &::before {
+        @include position(absolute, 1rem);
+        @include transition(opacity 0.3s ease-out);
+        opacity: 0;
+        content: '';
+        display: block;
+        border-left: 1px solid $white;
+        border-right: 1px solid $white;
+      }
+
+      .title,
+      .fleuron {
+        @include double-sided-border;
+        @include transition(opacity 0.3s ease-out);
+        opacity: 0;
+      }
+
+      h4 {
+        margin: 0 1rem;
+      }
+
+      .fleuron {
+        width: 100%;
+        @include position(absolute, null null 1.056rem);
+      }
+
+      .circle {
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        border: 1px solid $white;
+        margin: 0 0.7rem;
+      }
+
+      &.brandeis {
+        width: 373px;
+        height: 406px;
+        @include picture-overlay('../images/bg-brandeis.jpg', $discover-overlay, none);
+      }
+
+      &.pomona {
+        width: 373px;
+        height: 406px;
+        @include picture-overlay('../images/bg-pomona.jpg', $discover-overlay, none);
+      }
+
+      &.vassar {
+        width: 373px;
+        height: 522px;
+        @include picture-overlay('../images/bg-vassar.jpg', $discover-overlay, none);
+      }
+
+      &.carleton {
+        width: 373px;
+        height: 441px;
+        @include picture-overlay('../images/bg-carleton.jpg', $discover-overlay, none);
+      }
+
+      &.bryn-mawr {
+        width: 315px;
+        height: 550px;
+        @include picture-overlay('../images/bg-bryn-mawr.jpg', $discover-overlay, none);
+      }
+
+      &.white-lodge {
+        width: 431px;
+        height: 401px;
+        @include picture-overlay('../images/bg-white-lodge.jpg', $discover-overlay, none);
+      }
+
+      &.barnard {
+        width: 373px;
+        height: 434px;
+        @include picture-overlay('../images/bg-barnard.jpg', $discover-overlay, none);
+      }
+
+      &.amherst {
+        width: 373px;
+        height: 516px;
+        @include picture-overlay('../images/bg-amherst.jpg', $discover-overlay, none);
+      }
+
+      .content {
+        @include position(absolute, 0 1.056rem 1.056rem);
+        @include transform(translateY(42%));
+        @include transition(transform 0.5s ease-in-out);
+        text-align: center;
+
+        p {
+          font-style: italic;
+          margin: 0.61rem 0 0;
+        }
+
+        > ul {
+          opacity: 0;
+          display: flex;
+          justify-content: space-between;
+          list-style-type: none;
+          width: 100%;
+          padding: 0 1.56rem 0 2.11rem;
+          margin: 1.83rem 0 0;
+          @include transition(opacity 0.3s ease-out);
+
+          > li {
+            font-size: 1.22rem;
+            letter-spacing: 0.056rem;
+            text-align: center;
+
+            &::before {
+              display: block;
+              content: '';
+              width: 2rem;
+              height: 1.83rem;
+              vertical-align: middle;
+              margin: 0 auto 1rem;
+            }
+
+            &:nth-child(1) {
+              &::before {
+                content: url('../images/icon-sqft.svg');
+              }
+            }
+
+            &:nth-child(2) {
+              &::before {
+                content: url('../images/icon-bed.svg');
+              }
+            }
+
+            &:nth-child(3) {
+              &::before {
+                content: url('../images/icon-bath.svg');
+              }
+            }
+
+            &:nth-child(4) {
+              &::before {
+                content: url('../images/icon-car.svg');
+              }
+            }
+
+          }
+        }
+
+        a {
+          opacity: 0;
+          margin: 2rem 16.6% 0;
+          @include transition(opacity 0.3s ease-out);
+        }
+      }
+
+      &.discover {
+        width: 431px;
+        height: 137px;
+        background: #e3e3e3;
+        padding: 1.89rem 4.44rem;
+      }
+
+      &:not(.discover):hover {
+        background-color: $faded-denim;
+        background-blend-mode: soft-light;
+
+        &::before,
+        .title,
+        .fleuron {
+          opacity: 1;
+        }
+
+        .content {
+          @include transform(translateY(17.5%));
+
+          > ul {
+            opacity: 1;
+          }
+
+          a {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}

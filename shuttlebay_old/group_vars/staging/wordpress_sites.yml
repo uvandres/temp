@@ -1,0 +1,32 @@
+wordpress_sites:
+  blanco-vista:
+    site_hosts:
+      - ec2-52-91-244-100.compute-1.amazonaws.com
+    local_path: ../blanco-vista # path targeting local Spacestation site directory (relative to Ansible root)
+    repo: git@bitbucket.org:UVSouthSourcing/blanco-vista.git # replace with your Git repo URL
+    branch: development
+    repo_subtree_path: blanco-vista # relative path to your Spacestation/WP directory in your repo
+    multisite:
+      enabled: false
+      subdomains: false
+    ssl:
+      enabled: false
+      provider: letsencrypt
+    cache:
+      enabled: true
+      duration: 30s
+    env:
+      wp_home: http://ec2-52-91-244-100.compute-1.amazonaws.com
+      wp_siteurl: http://ec2-52-91-244-100.compute-1.amazonaws.com/wp
+      db_name: BlancoVista_staging
+      db_user: blancovista
+      # Define the following variables in group_vars/staging/vault.yml
+      # db_password:
+      # auth_key:
+      # secure_auth_key:
+      # logged_in_key:
+      # nonce_key:
+      # auth_salt:
+      # secure_auth_salt:
+      # logged_in_salt:
+      # nonce_salt:

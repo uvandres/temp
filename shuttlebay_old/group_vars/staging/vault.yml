@@ -1,0 +1,20 @@
+vault_mysql_root_password: A_s*as29
+
+vault_sudoer_passwords:
+  adm: bDO0Y3IDzI2VSMEm0reWLnTbJxGc4bf7nyLKsKNBOh60tTcmy4O20fB6OKYN8rTH
+
+# Variables to accompany `group_vars/staging/wordpress_sites.yml`
+vault_wordpress_sites:
+  blanco-vista:
+    env:
+      db_password: Waigh1ku3eHi8Motu
+      # Generate your keys here: https://api.wordpress.org/secret-key/1.1/salt/
+      # These CANNOT contain the characters "{%" or "{{" in succession
+      auth_key: "n*o:!ly{oyCs+|X;B6%UC63A?mU,=O%h4fL(o}7L=<=0rKAiGdMQd2!nYO}F8_w5"
+      secure_auth_key: "~N;b|SZ[F64O;0+{L%VpHE@6{Gj>bV-H_1kX_0e:yJZj:-kYY}!Jk2pxP[Y4Jgd%"
+      logged_in_key: "75~{kxE7zF@Sm|mf,a>iTUL|-CBH{VGEUrS8>?f:I[N,DHIu5>PeI~gjk kuUV2@"
+      nonce_key: "`2)i@WO8?*QiPC6+q@@RjR0cKm1jMZ$ge&1 _Hk)|[Q])u#x15S^@Y1n^`c!m+jI"
+      auth_salt: "Pwi-=InvQG=]dOWF$&&*_|h,K# Xza+Af1h7-i[GHop`$|Hq*eM3>DRqfjB:(#b<"
+      secure_auth_salt: "4^$GR~_0gagx[Ai nZAz`1~I7e0J+|;r`#IH7sQwgdAr}aVeEUG*n_[kd.p_(V+u"
+      logged_in_salt: "D/%(H:Y5]vk#eroiW.Fk=$oh3,;8mWv3|)|+6k$W}S$%`_wxaVb{uG|=]@nw/NS|"
+      nonce_salt: "w^5&0yz<ui[D]cR,FIJ2{^YWnwD-#qL*lCeQHhlOYE(ix0(Db%_X=}.bmuQ2>R?w"

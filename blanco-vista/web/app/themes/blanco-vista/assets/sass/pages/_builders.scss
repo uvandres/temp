@@ -1,0 +1,148 @@
+section.builders {
+  background-color: $midnight;
+  background-image: url('../images/bg-cutout.svg'),
+                    url('../images/bg-builders.svg');
+  background-repeat: no-repeat;
+  background-position: bottom left, bottom center;
+  background-size: contain, auto;
+  padding: 4.9rem $fat-padding 2.44rem;
+
+  ul {
+    position: relative;
+    list-style-type: none;
+    padding: 0;
+    margin: 2.3rem auto 0;
+
+    li {
+      position: absolute;
+      width: 261px;
+      height: 340px;
+      background-color: $faded-denim;
+      background-blend-mode: soft-light;
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+      @include vendor-prefix(clip-path, polygon(50.19% 0, 100% 28.82%, 100% 70.88%, 49.81% 100%, 0 70.88%, 0 28.82%, 49.81% 0));
+      @include transition(background-color 0.3s ease-out);
+
+      > div {
+        position: absolute;
+        top: 28.6%;
+        width: 259px;
+        height: 148px;
+        background-size: contain;
+        transform-origin: top center;
+        @include transition(transform 0.3s ease-out);
+      }
+
+      &.brohn-homes {
+        background-image: url('../images/303-Ancient-Oak.jpg');
+
+        > div {
+          background-image: url('../images/logo-brohn-homes.svg');
+        }
+      }
+
+      &.brookfield {
+        background-image: url('../images/304-Ancient-Oak.jpg');
+
+        > div {
+          background-image: url('../images/logo-brookfield.png');
+        }
+      }
+
+      &.buffington {
+        background-image: url('../images/308-Ancient-Oak.jpg');
+
+        > div {
+          background-image: url('../images/logo-buffington.png');
+        }
+      }
+
+      &.castlerock {
+        background-image: url('../images/312-Ancient-Oak.jpg');
+
+        > div {
+          background-image: url('../images/logo-castlerock.svg');
+        }
+      }
+
+      &.avi-homes {
+        background-image: url('../images/316-Ancient-Oak.jpg');
+
+        > div {
+          background-image: url('../images/logo-avi-homes.svg');
+        }
+      }
+
+      &.newleaf {
+        background-image: url('../images/303-Ancient-Oak.jpg');
+
+        > div {
+          background-image: url('../images/logo-newleaf.png');
+        }
+      }
+
+      &.pacesetter {
+        background-image: url('../images/304-Ancient-Oak.jpg');
+
+        > div {
+          background-image: url('../images/logo-pacesetter.png');
+        }
+      }
+
+      $border-color: adjust-color($solarflare, $hue: 16, $saturation: 11%, $lightness: 13%);
+      > span {
+        opacity: 0;
+        border-top: 2px solid $border-color;
+        border-bottom: 2px solid $border-color;
+        color: $white;
+        font-family: $kepler;
+        font-size: 1.2rem;
+        line-height: 2.3;
+        height: 2.8rem;
+        letter-spacing: 0.12rem;
+        font-style: italic;
+        text-align: center;
+        @include position(absolute, 48.5% 8%);
+        @include transition(opacity 0.3s ease-out);
+
+        &::after {
+          content: '';
+          display: block;
+          margin: 0.2rem auto;
+          @include triangle(0.8rem, $border-color, down);
+        }
+      }
+
+      > a {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        bottom: 15%;
+        color: $white;
+        font-family: $din-condensed;
+        font-size: 1.67rem;
+        line-height: 1;
+        letter-spacing: 0.189rem;
+        text-transform: uppercase;
+        text-decoration: none;
+        opacity: 0;
+        @include transition(opacity 0.3s ease-out);
+      }
+
+      &:hover {
+        background-color: adjust-color($crushcrush, $hue: 8, $saturation: -11%, $lightness: -10%);
+
+        > div {
+          transform: scale(0.8) translateY(-27.4%);
+        }
+
+        > span,
+        > a {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

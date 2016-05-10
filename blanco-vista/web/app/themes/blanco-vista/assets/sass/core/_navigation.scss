@@ -1,0 +1,142 @@
+header {
+  @include position(fixed, 0 null null 0);
+  @include transition(background-color 0.3s ease-in-out);
+  width: 100%;
+  height: 5.56rem;
+  z-index: 100;
+
+  a.brand {
+    display: block;
+    margin: 1.22rem 2rem;
+
+    svg {
+      width: 13.67rem;
+      height: 3.5rem;
+
+      * {
+        @include transition(fill 0.3s ease-in-out);
+      }
+    }
+  }
+
+  .main-navigation {
+  	position: absolute;
+		right: 1.9rem;
+  	top: 1.5rem;
+
+  	ul.nav {
+  		list-style: none;
+  		margin: 0;
+  		padding-left: 0;
+
+      li.menu-item + li.menu-item {
+        margin-left: 2.26rem;
+      }
+
+  		li.menu-item {
+        position: relative;
+  			display: inline-block;
+        cursor: pointer;
+
+  			a {
+          display: inline-block;
+					color: $white;
+					opacity: 0.85;
+					font-family: $din-condensed;
+					font-size: 1.3rem;
+  				text-transform: uppercase;
+          text-decoration: none;
+          @include transform(translateY(0));
+          @include transition(color 0.3s ease-out,
+                              transform 0.3s ease-out);
+  			}
+
+        &::before {
+          position: absolute;
+          display: block;
+          content: '';
+          background-color: $blanco-blue;
+          box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.25);
+          left: -1rem;
+          top: -2.5rem;
+          width: calc(100% + 2rem);
+          height: 7rem;
+          @include transform(translateY(-7rem) skewY(4.5deg));
+          @include transition(transform 0.3s ease-in-out);
+        }
+
+        &::after {
+          display: block;
+          position: absolute;
+          width: 2.4rem;
+          left: calc(50% - 1.2rem);
+          top: -0.6rem;
+          opacity: 0;
+          @include transition(opacity 0.3s ease-out);
+        }
+
+        &:hover {
+          a {
+            color: $white;
+            @include transform(translateY(2rem));
+            @include transition(color 0.3s ease-out 0.1s,
+                                transform 0.3s ease-out 0.3s);
+          }
+
+          &::before {
+            @include transform(translateY(0) skewY(4.5deg));
+          }
+
+          &::after {
+            opacity: 1;
+            @include transition(opacity 0.3s ease-out 0.3s);
+          }
+        }
+
+        &.homes::after {
+          content: url('../images/homes.svg');
+        }
+        &.builders::after {
+          content: url('../images/builders.svg');
+          width: 1.9rem;
+        }
+        &.community::after {
+          content: url('../images/community.svg');
+        }
+        &.lifestyle::after {
+          content: url('../images/lifestyle.svg');
+          width: 2.2rem;
+        }
+        &.about::after {
+          content: url('../images/about.svg');
+        }
+        &.contact::after {
+          content: url('../images/contact.svg');
+        }
+  		}
+  	}
+  }
+
+  &.sticky {
+    @include vendor-prefix(box-shadow, 0 2px 4px rgba(0, 0, 0, 0.1));
+    background-color: $white;
+
+    a.brand svg * {
+      fill: $blanco-blue !important;
+    }
+
+    .main-navigation ul.nav li.menu-item {
+      a {
+        color: $blanco-blue;
+      }
+
+      &:hover a {
+        color: $white;
+      }
+    }
+  }
+}
+
+.admin-bar header {
+  top: 32px;
+}

@@ -1,0 +1,137 @@
+@mixin double-sided-border($color: $white) {
+	display: flex;
+	align-items: baseline;
+	width: 100%;
+
+	&::before,
+	&::after {
+		content: '';
+		border-top: 1px solid $color;
+		border-bottom: 1px solid $color;
+		height: 0.8rem;
+		flex-grow: 1;
+	}
+}
+
+@mixin hollow-animated($border-color, $background-color, $border-width: 2px) {
+	color: $background-color;
+	background-image: linear-gradient($border-color, $border-color $border-width, transparent $border-width, transparent),
+										linear-gradient(0deg, $border-color, $border-color $border-width, transparent $border-width, transparent),
+										linear-gradient(90deg, $border-color, $border-color $border-width, transparent $border-width, transparent),
+										linear-gradient(270deg, $border-color, $border-color $border-width, transparent $border-width, transparent),
+										linear-gradient(0deg, transparent, transparent ($border-width * 2), $white ($border-width * 2), $white);
+
+	background-repeat: no-repeat;
+	background-position: right, left, top, bottom, bottom;
+	background-size: 100% 100%,
+									 100% 100%,
+									 100% 100%,
+									 100% 100%,
+									 calc(100% - #{$border-width * 4}) 0%;
+
+	@include transition(background-size 0.3s ease-out,
+											color 0.1s ease-out);
+
+	svg * {
+		@include transition(fill 0.1s ease-out);
+	}
+
+	&:hover {
+		color: $border-color;
+		background-size: 0% 100%,
+										 0% 100%,
+										 100% 0%,
+										 100% 0%,
+										 calc(100% - #{$border-width * 4}) calc(100% - #{$border-width * 2});
+
+		svg * {
+			fill: $border-color !important;
+		}
+	}
+}
+
+@mixin picture-overlay($picture, $color, $hover-color) {
+	background-image: linear-gradient($color, $color), url($picture);
+
+	@if $hover-color {
+		&:hover {
+			background-image: linear-gradient($hover-color, $hover-color), url($picture);
+		}
+	} @else if $hover-color == none {
+		&:hover {
+			background-image: url($picture);
+		}
+	}
+}
+
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+	font-size: ($sizeValue * 16) * 1px;
+	font-size: $sizeValue * 1rem;
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+
+//  Vertical Align
+@mixin vertical-align($align:relative, $top:50%) {
+	position: $align;
+	top: $top;
+	@include transform(translateY(-50%));
+}
+
+//  Background Image
+@mixin background ($folder:images, $img:file, $type:png, $repeat:no-repeat, $x:0, $y:0, $size:none) {
+	background-image: url(../#{$folder}/#{$img}.#{$type});
+	background-repeat: #{$repeat};
+	background-position: #{$x} #{$y};
+
+	@if $size != 'none' {
+		background-size: $size;
+	}
+}
+
+// Vendore Prefix
+@mixin vendor-prefix($name, $argument) {
+	-webkit-#{$name}: #{$argument};
+	-ms-#{$name}: #{$argument};
+	-moz-#{$name}: #{$argument};
+	-o-#{$name}: #{$argument};
+	#{$name}: #{$argument};
+}
+
+// Gradient Border
+@mixin gradient_border($color01:#000000, $color02:#ffffff, $direction:right) {
+	-webkit-border-image: -webkit-gradient(linear, 100% 0, 0 0, from(#{$color01}), to(#{$color02})) 1 100%;
+	-webkit-border-image: -webkit-linear-gradient(#{$direction}, #{$color01}, #{$color02}) 1 100%;
+	-moz-border-image: -moz-linear-gradient(#{$direction}, #{$color01}, #{$color02}) 1 100%;
+	-o-border-image: -o-linear-gradient(#{$direction}, #{$color01}, #{$color02}) 1 100%;
+	border-image: linear-gradient(to #{$direction}, #{$color01}, #{$color02}) 1 100%;
+	border-image-slice: 1;
+}
+
+//  Multiple Neat Breakpoints
+@mixin multiple-media($media...) {
+	@each $query in $media {
+		@include media($query) {
+			@content
+		}
+	}
+}

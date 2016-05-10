@@ -1,0 +1,52 @@
+a.btn,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	display: inline-block;
+	color: $white;
+	font-family: $din-condensed;
+	font-size: 1.35rem;
+	letter-spacing: 0.085rem;
+	line-height: 1.2;
+	text-align: center;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	padding: 1rem;
+	outline: none;
+
+	@include hollow-animated($crushcrush, $white);
+
+	&:active,
+	&:focus {
+		border-color: #e4e4e4;
+	}
+
+	.arrow-right {
+		display: inline-block;
+		width: 0.778rem;
+		margin: 0 0.5rem 0 1.5rem;
+	}
+}
+
+a.scroll-down {
+	position: relative;
+	display: block;
+	width: 2.22rem;
+	color: $white;
+	font-family: $din-condensed;
+	font-size: 0.9rem;
+	text-transform: uppercase;
+	text-decoration: none;
+	line-height: 7rem;
+
+	&::before {
+		display: block;
+		position: absolute;
+		width: 100%;
+		content: url('../images/scroll-arrow.svg');
+	}
+}

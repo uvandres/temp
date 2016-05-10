@@ -1,0 +1,140 @@
+section.social {
+  .content {
+    margin: 0 0 0 116px;
+
+    article,
+    blockquote {
+      color: $white;
+      background-color: $midnight;
+      width: 332px;
+      margin: 0;
+
+      > div {
+        padding: 10px 20px 24px;
+
+        span {
+          color: #e4e6e7;
+          font: 12px $montserrat;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+        }
+
+        &:hover {
+          span span {
+            color: $freshblue;
+          }
+
+          h3 {
+            color: $crushcrush;
+          }
+        }
+      }
+    }
+
+    article {
+      > div {
+        h3 {
+          font: 24px $kepler;
+          letter-spacing: 1.8px;
+          margin: 10px 0;
+          text-transform: none;
+          text-align: left;
+        }
+
+        p {
+          font: 14px $montserrat;
+          letter-spacing: 1.3px;
+          border-top: 2px solid $midnight-drk;
+          padding: 20px 0 0;
+        }
+      }
+    }
+
+    blockquote {
+      margin: 0;
+      &::before, &::after {
+        content: initial;
+      }
+
+      > div {
+        p {
+          font: 24px $kepler;
+          letter-spacing: 1.8px;
+          margin: 20px 0 32px;
+        }
+
+        cite {
+          display: block;
+          font: 14px $montserrat;
+          letter-spacing: 1.8px;
+          border-top: 2px solid $midnight-drk;
+          padding: 12px 2px 0;
+          margin: 0 0 -8px;
+
+          &::before {
+            width: 32px;
+            height: 32px;
+            display: inline-block;
+            margin: 0 10px 0 0;
+            vertical-align: text-top;
+          }
+        }
+      }
+
+      &.twitter {
+        background-color: $faded-denim;
+
+        > div {
+          cite {
+            border-top-color: #2d587a;
+
+            &::before {
+              content: url('../images/twitter.svg');
+            }
+          }
+        }
+      }
+
+      &.facebook {
+        color: $midnight;
+        background-color: $crushcrush;
+
+        > div {
+          span {
+            color: #2d516f;
+          }
+
+          cite {
+            border-top-color: #e0662a;
+
+            &::before {
+              content: url('../images/facebook.svg');
+            }
+          }
+
+          a {
+            color: $faded-denim;
+          }
+        }
+
+        &:hover {
+          > div span span {
+            color: $midnight;
+          }
+        }
+      }
+    }
+  }
+
+  > a.btn {
+    display: block;
+    width: 218px;
+    letter-spacing: 1.6px;
+    padding: 14px 34px;
+    margin: 54px auto 138px;
+
+    &::after {
+      margin: 0 0 0 35px;
+    }
+  }
+}

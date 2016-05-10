@@ -1,0 +1,156 @@
+@include font-face('Kepler',             '../fonts/keplerstd-regular-webfont');
+@include font-face('Montserrat',         '../fonts/montserrat-regular-webfont');
+@include font-face('Proxima-Nova',       '../fonts/proximanova-regular-webfont');
+@include font-face('DIN-Condensed',      '../fonts/pt_din_condensed_cyrillic-webfont');
+@include font-face('IM-FELL-English-SC', '../fonts/im_fell_english_sc-webfont');
+
+$kepler:          'Kepler', 						'Georgia', 'Cambria', 'Times New Roman', 'Times', serif;
+$im-feel-english: 'IM-FELL-English-SC', 'Georgia', 'Cambria', 'Times New Roman', 'Times', serif;
+
+$montserrat: 			'Montserrat',  'Helvetica Neue', Helvetica, Arial, sans-serif;
+$proxima-nova: 		Proxima-Nova,  'Helvetica Neue', Helvetica, Arial, sans-serif;
+$din-condensed: 	DIN-Condensed, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+html {
+	color: $midnight;
+	font-family: $kepler;
+	font-size: 18px;
+	line-height: 1.7;
+	letter-spacing: 0.05em;
+}
+
+body,
+select,
+textarea {
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+	text-rendering: optimizeLegibility !important;
+	-webkit-font-smoothing: antialiased !important;
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+	clear: both;
+	color: $faded-denim;
+	font-family: $din-condensed;
+	letter-spacing: 0.07em;
+	line-height: 1.3;
+	text-align: center;
+	text-transform: uppercase;
+	margin: 0;
+}
+
+h1 {
+	font-size: 4rem;
+}
+
+h2 {
+	font-size: 3rem;
+	letter-spacing: 0.155em;
+
+	&.fleuron::after {
+		display: block;
+		content: url('../images/fleuron-tree-white.svg');
+		width: 13.17rem;
+		margin: -0.3rem auto 0;
+	}
+}
+
+h3 {
+	font-size: 1.9rem;
+	letter-spacing: 0.067em;
+}
+
+h4 {
+	font-size: 1rem;
+	font-family: $im-feel-english;
+	letter-spacing: 0.2em;
+}
+
+h5 {
+	font-family: $montserrat;
+	font-size: 0.7rem;
+	letter-spacing: 0.09rem;
+}
+
+time, cite {
+	@extend h5;
+}
+
+.dark {
+	&, h1, h3, h4, h5, h6 {
+		color: $white;
+	}
+
+	> h2 {
+		color: $freshblue;
+
+		&.fleuron::after {
+			content: url('../images/fleuron-tree-blue.svg');
+		}
+	}
+}
+
+p {
+	margin-bottom: 1.5em;
+}
+
+.desc {
+	font-style: italic;
+	font-size: 1.2rem;
+}
+
+dfn, cite, em, i {
+	font-style: italic;
+}
+
+blockquote {
+	margin: 0 1.5em;
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
+pre {
+	background: #222628;
+	margin-bottom: 1.6em;
+	max-width: 100%;
+	overflow: auto;
+	padding: 1.6em;
+}
+
+code, kbd, tt, var {
+	font-family: monospace;
+	@include font-size(0.9375);
+}
+
+abbr, acronym {
+	border-bottom: 1px dotted #e4e4e4;
+	cursor: help;
+}
+
+mark, ins {
+	background: #222628;
+	text-decoration: none;
+}
+
+big {
+	font-size: 125%;
+}
+
+
+a {
+	color: $freshblue-drk;
+	@include transition(color 0.3s);
+
+	&:visited {
+		color: $freshblue-drk;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: $crushcrush;
+		outline: 0;
+	}
+}
